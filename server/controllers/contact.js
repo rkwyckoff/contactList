@@ -36,17 +36,16 @@ module.exports = {
      })
      .then(contacts => res.status(201).send(contacts))
      .catch(error => res.status(400).send(error));
+   },
+
+   deleteContact (req, res) {
+     Contact.destroy({
+        where: {
+         id:req.params.id
+         }
+      })
+     .then(contacts => res.status(200).send(contacts))
+     .catch(error => res.status(400).send(error));
    }
-
-
-  //   .then(contacts => res.status(200).send(contacts))
-  //   .catch(error => res.status(400).send(error));
-  // },
-  // deleteContact (req, res) {
-  //   Contact.findById(req.params.id)
-  //   Contact.destroy()
-  //   .then(contacts => res.status(200).send(contacts))
-  //   .catch(error => res.status(400).send(error));
-  // },
 
 }

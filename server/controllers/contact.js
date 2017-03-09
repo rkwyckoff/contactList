@@ -18,8 +18,7 @@ module.exports = {
   },
   listContacts (req, res) {
     Contact.findAll({
-  })
-
+    })
     .then(contacts => res.status(200).send(contacts))
     .catch(error => res.status(400).send(error));
   },
@@ -31,9 +30,7 @@ module.exports = {
   editContact (req, res) {
     Contact.findById(req.params.id)
     Contact.update({city: contact.city
-
     })
-
     .then(contacts => res.status(200).send(contacts))
     .catch(error => res.status(400).send(error));
   }

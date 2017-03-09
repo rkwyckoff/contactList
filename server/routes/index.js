@@ -4,6 +4,7 @@ module.exports = (app) => {
   app.post('/contacts', ContactController.create);
   app.get('/contacts', ContactController.listContacts);
   app.get('/contacts/:id', ContactController.findContact);
-  app.put('/contacts', ContactController.editContact);
+  app.put('/contacts/:id', ContactController.editContact);
+  // app.delete('/contactss/:id', todosController.deleteContact);
 
 };

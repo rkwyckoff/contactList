@@ -24,15 +24,29 @@ module.exports = {
   },
   findContact (req, res) {
     Contact.findById(req.params.id)
-    .then(contacts => res.status(200).send(contacts))
+    .then(contacts => res.status(201).send(contacts))
     .catch(error => res.status(400).send(error));
   },
-  editContact (req, res) {
-    Contact.findById(req.params.id)
-    Contact.update({city: contact.city
-    })
-    .then(contacts => res.status(200).send(contacts))
-    .catch(error => res.status(400).send(error));
-  }
+   editContact (req, res) {
+     Contact.update(req.body, {
+       fields: ['city'],
+       where: {
+         id: req.params.id
+       }
+     })
+     .then(contacts => res.status(201).send(contacts))
+     .catch(error => res.status(400).send(error));
+   }
+
+
+  //   .then(contacts => res.status(200).send(contacts))
+  //   .catch(error => res.status(400).send(error));
+  // },
+  // deleteContact (req, res) {
+  //   Contact.findById(req.params.id)
+  //   Contact.destroy()
+  //   .then(contacts => res.status(200).send(contacts))
+  //   .catch(error => res.status(400).send(error));
+  // },
 
 }

@@ -13,7 +13,29 @@ module.exports = {
 
 
       })
-      .then(todo => res.status(201).send(todo))
+      .then(contact => res.status(201).send(contact))
       .catch(error => res.status(400).send(error));
   },
-};
+  listContacts (req, res) {
+    Contact.findAll({
+  })
+
+    .then(contacts => res.status(200).send(contacts))
+    .catch(error => res.status(400).send(error));
+  },
+  findContact (req, res) {
+    Contact.findById(req.params.id)
+    .then(contacts => res.status(200).send(contacts))
+    .catch(error => res.status(400).send(error));
+  },
+  editContact (req, res) {
+    Contact.findById(req.params.id)
+    Contact.update({city: contact.city
+
+    })
+
+    .then(contacts => res.status(200).send(contacts))
+    .catch(error => res.status(400).send(error));
+  }
+
+}
